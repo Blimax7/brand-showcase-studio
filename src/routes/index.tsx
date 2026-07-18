@@ -404,6 +404,35 @@ function CategorySection({ category }: { category: Category }) {
               {category.copy}
             </p>
 
+            {category.rank === "01" && (
+              <div className="mt-10 grid grid-cols-3 gap-4">
+                <img
+                  src={chanelImg}
+                  alt="Chanel beauty campaign"
+                  loading="lazy"
+                  width={340}
+                  height={425}
+                  className="aspect-[4/5] w-full rounded-sm object-cover ring-1 ring-emerald-deep/10"
+                />
+                <img
+                  src={louisvuittonImg}
+                  alt="Louis Vuitton fashion campaign"
+                  loading="lazy"
+                  width={340}
+                  height={425}
+                  className="aspect-[4/5] w-full rounded-sm object-cover ring-1 ring-emerald-deep/10"
+                />
+                <img
+                  src={nykaaImg}
+                  alt="Nykaa beauty campaign"
+                  loading="lazy"
+                  width={340}
+                  height={425}
+                  className="aspect-[4/5] w-full rounded-sm object-cover ring-1 ring-emerald-deep/10"
+                />
+              </div>
+            )}
+
             <ul className="mt-10 divide-y divide-current/10">
               {category.brands.map((b) => (
                 <li
