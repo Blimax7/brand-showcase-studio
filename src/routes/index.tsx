@@ -1,7 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useState, type FormEvent } from "react";
 import {
-  Instagram,
   Youtube,
   Twitter,
   Sparkles,
