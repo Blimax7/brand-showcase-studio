@@ -201,7 +201,7 @@ function Hero() {
           <h1 className="mt-6 font-serif text-5xl leading-[1.02] tracking-tight md:text-7xl lg:text-[92px]">
             Blimax's{" "}
             <span className="italic text-rose-gradient">Endorsements</span> —
-            a curated house, worn by her.
+            a curated house, worn by him.
           </h1>
           <p className="mt-8 max-w-xl text-lg leading-relaxed text-cream/80">
             Beauty, jewelry and technology — the brands, the products, and the
