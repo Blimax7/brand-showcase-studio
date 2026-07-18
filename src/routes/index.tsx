@@ -111,7 +111,7 @@ const socials = [
 const testimonials = [
   {
     quote:
-      "Blimax doesn't just endorse — she styles the story around the product. Our campaign performed 3× above our benchmark.",
+      "Blimax doesn't just endorse — he styles the story around the product. Our campaign performed 3× above our benchmark.",
     author: "Amélie R.",
     role: "Global Brand Director, Maison de Beauté",
   },
@@ -123,7 +123,7 @@ const testimonials = [
   },
   {
     quote:
-      "I bought the necklace the moment she wore it. Then the earrings. Then the perfume. She has ridiculous taste.",
+      "I bought the necklace the moment he wore it. Then the earrings. Then the perfume. He has ridiculous taste.",
     author: "Priya S.",
     role: "Verified customer",
   },
