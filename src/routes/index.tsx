@@ -17,6 +17,9 @@ import heroImg from "@/assets/hero.jpg";
 import beautyImg from "@/assets/beauty.jpg";
 import jewelryImg from "@/assets/jewelry.jpg";
 import techImg from "@/assets/tech.jpg";
+import chanelImg from "@/assets/chanel.jpg";
+import louisvuittonImg from "@/assets/louisvuitton.jpg";
+import nykaaImg from "@/assets/nykaa.jpg";
 import logoAsset from "@/assets/blimax-logo.jpg.asset.json";
 
 export const Route = createFileRoute("/")({
@@ -48,7 +51,7 @@ type Category = {
 const categories: Category[] = [
   {
     rank: "01",
-    eyebrow: "Rank 01 — Beauty & Fashion",
+    eyebrow: "01 — Beauty & Fashion",
     title: "The atelier of light and skin.",
     copy: "House campaigns and seasonal edits for the icons of couture and clean beauty. Editorial-first, product-obsessed.",
     image: beautyImg,
@@ -62,7 +65,7 @@ const categories: Category[] = [
   },
   {
     rank: "02",
-    eyebrow: "Rank 02 — Jewelry",
+    eyebrow: "02 — Jewelry",
     title: "Heirlooms, worn like a signature.",
     copy: "High jewelry and everyday fine — sculpted around the collarbone, the wrist, the ear. Every stone earns its light.",
     image: jewelryImg,
@@ -76,11 +79,11 @@ const categories: Category[] = [
   },
   {
     rank: "03",
-    eyebrow: "Rank 03 — Tech & Electronics",
+    eyebrow: "03 — Tech & Electronics",
     title: "Instruments for a modern life.",
     copy: "Devices, platforms and everyday tools chosen for craft, not novelty. Long-form reviews, product films, launch keynotes.",
     image: techImg,
-    imageAlt: "Ambassador holding a smartphone and laptop under emerald lighting",
+    imageAlt: "Ambassadors with Samsung smartphone, laptop and watch under emerald and rose lighting",
     icon: Cpu,
     brands: [
       { name: "Google", product: "Pixel 10 Pro — Creator Program", note: "Launch film" },
@@ -108,7 +111,7 @@ const socials = [
 const testimonials = [
   {
     quote:
-      "Blimax doesn't just endorse — she styles the story around the product. Our campaign performed 3× above our benchmark.",
+      "Blimax doesn't just endorse — he styles the story around the product. Our campaign performed 3× above our benchmark.",
     author: "Amélie R.",
     role: "Global Brand Director, Maison de Beauté",
   },
@@ -120,7 +123,7 @@ const testimonials = [
   },
   {
     quote:
-      "I bought the necklace the moment she wore it. Then the earrings. Then the perfume. She has ridiculous taste.",
+      "I bought the necklace the moment he wore it. Then the earrings. Then the perfume. He has ridiculous taste.",
     author: "Priya S.",
     role: "Verified customer",
   },
@@ -198,7 +201,7 @@ function Hero() {
           <h1 className="mt-6 font-serif text-5xl leading-[1.02] tracking-tight md:text-7xl lg:text-[92px]">
             Blimax's{" "}
             <span className="italic text-rose-gradient">Endorsements</span> —
-            a curated house, worn by her.
+            a curated house, worn by him.
           </h1>
           <p className="mt-8 max-w-xl text-lg leading-relaxed text-cream/80">
             Beauty, jewelry and technology — the brands, the products, and the
@@ -238,7 +241,7 @@ function Hero() {
           <div className="relative mx-auto aspect-[4/5] w-full max-w-md overflow-hidden rounded-sm ring-1 ring-gold/30 lg:max-w-none">
             <img
               src={heroImg}
-              alt="Indian editorial portrait in emerald satin — Blimax cover"
+              alt="Indian male editorial portrait in emerald and gold — Blimax cover"
               width={1600}
               height={1800}
               className="h-full w-full object-cover"
@@ -400,6 +403,35 @@ function CategorySection({ category }: { category: Category }) {
             >
               {category.copy}
             </p>
+
+            {category.rank === "01" && (
+              <div className="mt-10 grid grid-cols-3 gap-4">
+                <img
+                  src={chanelImg}
+                  alt="Chanel beauty campaign"
+                  loading="lazy"
+                  width={340}
+                  height={425}
+                  className="aspect-[4/5] w-full rounded-sm object-cover ring-1 ring-emerald-deep/10"
+                />
+                <img
+                  src={louisvuittonImg}
+                  alt="Louis Vuitton fashion campaign"
+                  loading="lazy"
+                  width={340}
+                  height={425}
+                  className="aspect-[4/5] w-full rounded-sm object-cover ring-1 ring-emerald-deep/10"
+                />
+                <img
+                  src={nykaaImg}
+                  alt="Nykaa beauty campaign"
+                  loading="lazy"
+                  width={340}
+                  height={425}
+                  className="aspect-[4/5] w-full rounded-sm object-cover ring-1 ring-emerald-deep/10"
+                />
+              </div>
+            )}
 
             <ul className="mt-10 divide-y divide-current/10">
               {category.brands.map((b) => (
