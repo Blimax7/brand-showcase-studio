@@ -86,8 +86,8 @@ const categories: Category[] = [
     brands: [
       { name: "Google", product: "Pixel 10 Pro — Creator Program", note: "Launch film" },
       { name: "Samsung", product: "Galaxy S — Ultra Series", note: "Global ambassador" },
-      { name: "Microsoft", product: "Surface Studio — Creator Suite", note: "Design residency" },
-      { name: "AliExpress", product: "Choice — Everyday Edit", note: "Seasonal host" },
+      { name: "Samsung", product: "Galaxy Z Fold — Foldable Campaign", note: "Tech residency" },
+      { name: "Samsung", product: "Galaxy Watch — Wellness Edit", note: "Seasonal host" },
     ],
     reverse: true,
   },
@@ -104,10 +104,8 @@ const brandRoster = [
 ];
 
 const socials = [
-  { name: "Instagram", handle: "@blimax", followers: "2.4M", icon: Instagram, href: "#" },
+  { name: "X / Twitter", handle: "@blimax", followers: "1.1M", icon: Twitter, href: "#" },
   { name: "YouTube", handle: "Blimax", followers: "860K", icon: Youtube, href: "#" },
-  { name: "TikTok", handle: "@blimax.official", followers: "1.1M", icon: Sparkles, href: "#" },
-  { name: "X / Twitter", handle: "@blimax", followers: "420K", icon: Twitter, href: "#" },
 ];
 
 const testimonials = [
@@ -201,9 +199,9 @@ function Hero() {
             The Endorsement House
           </div>
           <h1 className="mt-6 font-serif text-5xl leading-[1.02] tracking-tight md:text-7xl lg:text-[92px]">
-            A curated house of{" "}
-            <span className="italic text-rose-gradient">endorsements</span>,
-            worn by Blimax.
+            Blimax's{" "}
+            <span className="italic text-rose-gradient">Endorsements</span> —
+            a curated house, worn by her.
           </h1>
           <p className="mt-8 max-w-xl text-lg leading-relaxed text-cream/80">
             Beauty, jewelry and technology — the brands, the products, and the
@@ -228,7 +226,7 @@ function Hero() {
             {[
               { k: "48+", v: "Global brands" },
               { k: "4.8M", v: "Community" },
-              { k: "12", v: "Years on stage" },
+              { k: "6", v: "Years on stage" },
             ].map((s) => (
               <div key={s.v}>
                 <dt className="font-serif text-4xl text-gold">{s.k}</dt>
@@ -328,7 +326,7 @@ function About() {
           <div className="gold-rule my-8" />
           <div className="grid grid-cols-2 gap-6 text-sm text-muted-foreground md:grid-cols-3">
             <div>
-              <div className="font-serif text-2xl text-emerald-deep">Paris · Mumbai</div>
+              <div className="font-serif text-2xl text-emerald-deep">India · USA · Singapore · Japan</div>
               <div className="mt-1 uppercase tracking-[0.2em]">Home bases</div>
             </div>
             <div>
@@ -561,13 +559,21 @@ function ContactLogin() {
           <div className="mt-10 space-y-4 text-sm">
             <div className="flex items-center gap-3">
               <Mail className="h-4 w-4 text-gold" />
-              <a href="mailto:studio@blimax.com" className="hover:text-gold">
-                studio@blimax.com
+              <a href="mailto:blimtheindustry@gmail.com" className="hover:text-gold">
+                blimtheindustry@gmail.com
               </a>
+              <span className="text-[10px] uppercase tracking-[0.2em] text-cream/50">Official Contact Email</span>
+            </div>
+            <div className="flex items-center gap-3">
+              <Mail className="h-4 w-4 text-gold" />
+              <a href="mailto:emilysharon69@gmail.com" className="hover:text-gold">
+                emilysharon69@gmail.com
+              </a>
+              <span className="text-[10px] uppercase tracking-[0.2em] text-cream/50">Brand Manager</span>
             </div>
             <div className="flex items-center gap-3">
               <span className="text-gold">·</span>
-              <span>Bookings via IMG Talent · Paris & Mumbai</span>
+              <span>Bookings via IMG Talent · India, USA, Singapore, Japan</span>
             </div>
             <div className="flex items-center gap-3">
               <span className="text-gold">·</span>
@@ -629,7 +635,7 @@ function ContactLogin() {
                 <ArrowUpRight className="h-4 w-4" />
               </button>
               <div className="text-center text-[10px] uppercase tracking-[0.3em] text-cream/50">
-                Or request access · studio@blimax.com
+                Or request access · blimtheindustry@gmail.com
               </div>
             </div>
           )}
