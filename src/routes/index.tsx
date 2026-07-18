@@ -241,7 +241,7 @@ function Hero() {
           <div className="relative mx-auto aspect-[4/5] w-full max-w-md overflow-hidden rounded-sm ring-1 ring-gold/30 lg:max-w-none">
             <img
               src={heroImg}
-              alt="Indian editorial portrait in emerald satin — Blimax cover"
+              alt="Indian male editorial portrait in emerald and gold — Blimax cover"
               width={1600}
               height={1800}
               className="h-full w-full object-cover"
