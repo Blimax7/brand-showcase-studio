@@ -18,6 +18,7 @@ import heroImg from "@/assets/hero.jpg";
 import beautyImg from "@/assets/beauty.jpg";
 import jewelryImg from "@/assets/jewelry.jpg";
 import techImg from "@/assets/tech.jpg";
+import logoAsset from "@/assets/blimax-logo.jpg.asset.json";
 
 export const Route = createFileRoute("/")({
   component: Index,
@@ -152,20 +153,24 @@ function TopNav() {
   return (
     <header className="sticky top-0 z-40 border-b border-border/60 bg-background/80 backdrop-blur">
       <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4 md:px-10">
-        <a href="#top" className="flex items-baseline gap-2">
-          <span className="font-serif text-2xl tracking-tight text-emerald-deep">
-            Blimax
-          </span>
-          <span className="text-[10px] uppercase tracking-[0.3em] text-muted-foreground">
+        <a href="#top" className="flex items-center gap-3">
+          <img
+            src={logoAsset.url}
+            alt="Blimax logo"
+            width={40}
+            height={40}
+            className="h-10 w-10 rounded-full object-cover ring-1 ring-gold/40"
+          />
+          <span className="hidden text-[10px] uppercase tracking-[0.3em] text-muted-foreground sm:inline">
             Est. Endorsements
           </span>
         </a>
         <nav className="hidden items-center gap-8 text-sm text-muted-foreground md:flex">
-          <a href="#about" className="hover:text-emerald-deep">About</a>
-          <a href="#beauty" className="hover:text-emerald-deep">Beauty</a>
-          <a href="#jewelry" className="hover:text-emerald-deep">Jewelry</a>
-          <a href="#tech" className="hover:text-emerald-deep">Tech</a>
-          <a href="#voices" className="hover:text-emerald-deep">Voices</a>
+          <a href="#about" className="hover:text-rose">About</a>
+          <a href="#beauty" className="hover:text-rose">Beauty</a>
+          <a href="#jewelry" className="hover:text-rose">Jewelry</a>
+          <a href="#tech" className="hover:text-rose">Tech</a>
+          <a href="#voices" className="hover:text-rose">Voices</a>
         </nav>
         <a
           href="#access"
@@ -186,7 +191,7 @@ function Hero() {
         className="pointer-events-none absolute inset-0 opacity-40"
         style={{
           background:
-            "radial-gradient(1200px 600px at 80% 20%, rgba(201,168,76,0.35), transparent 60%), radial-gradient(800px 400px at 10% 80%, rgba(13,122,95,0.6), transparent 60%)",
+            "radial-gradient(1200px 600px at 80% 20%, rgba(201,168,76,0.35), transparent 60%), radial-gradient(900px 500px at 15% 85%, rgba(232,138,176,0.45), transparent 60%), radial-gradient(700px 400px at 60% 60%, rgba(13,122,95,0.5), transparent 60%)",
         }}
       />
       <div className="relative mx-auto grid max-w-7xl grid-cols-1 gap-16 px-6 py-24 md:px-10 md:py-32 lg:grid-cols-12">
@@ -197,7 +202,7 @@ function Hero() {
           </div>
           <h1 className="mt-6 font-serif text-5xl leading-[1.02] tracking-tight md:text-7xl lg:text-[92px]">
             A curated house of{" "}
-            <span className="italic text-gold-gradient">endorsements</span>,
+            <span className="italic text-rose-gradient">endorsements</span>,
             worn by Blimax.
           </h1>
           <p className="mt-8 max-w-xl text-lg leading-relaxed text-cream/80">
@@ -207,14 +212,14 @@ function Hero() {
           <div className="mt-10 flex flex-wrap items-center gap-4">
             <a
               href="#beauty"
-              className="inline-flex items-center gap-2 rounded-full bg-gold px-6 py-3 text-sm uppercase tracking-[0.2em] text-emerald-deep transition hover:bg-cream"
+              className="inline-flex items-center gap-2 rounded-full bg-gold px-6 py-3 text-sm uppercase tracking-[0.2em] text-emerald-deep transition hover:bg-rose hover:text-cream"
             >
               See the portfolio
               <ArrowUpRight className="h-4 w-4" />
             </a>
             <a
               href="#access"
-              className="inline-flex items-center gap-2 rounded-full border border-cream/30 px-6 py-3 text-sm uppercase tracking-[0.2em] text-cream/90 transition hover:border-gold hover:text-gold"
+              className="inline-flex items-center gap-2 rounded-full border border-cream/30 px-6 py-3 text-sm uppercase tracking-[0.2em] text-cream/90 transition hover:border-rose hover:text-rose"
             >
               Work with Blimax
             </a>
@@ -238,21 +243,30 @@ function Hero() {
           <div className="relative mx-auto aspect-[4/5] w-full max-w-md overflow-hidden rounded-sm ring-1 ring-gold/30 lg:max-w-none">
             <img
               src={heroImg}
-              alt="Blimax portrait — emerald satin editorial"
+              alt="Indian editorial portrait in emerald satin — Blimax cover"
               width={1600}
               height={1800}
               className="h-full w-full object-cover"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-emerald-deep/70 via-transparent to-transparent" />
+            <div className="absolute inset-0 bg-gradient-to-t from-emerald-deep/70 via-transparent to-rose/10" />
             <div className="absolute bottom-6 left-6 right-6 flex items-end justify-between">
               <div>
                 <div className="text-[10px] uppercase tracking-[0.3em] text-gold">
                   Cover · SS 26
                 </div>
-                <div className="font-serif text-2xl text-cream">Blimax</div>
+                <div className="flex items-center gap-2">
+                  <img
+                    src={logoAsset.url}
+                    alt=""
+                    width={28}
+                    height={28}
+                    className="h-7 w-7 rounded-full ring-1 ring-gold/50"
+                  />
+                  <span className="font-serif text-2xl text-cream">Blimax</span>
+                </div>
               </div>
-              <div className="rounded-full border border-gold/60 px-3 py-1 text-[10px] uppercase tracking-[0.2em] text-gold">
-                In emerald
+              <div className="rounded-full border border-rose/60 px-3 py-1 text-[10px] uppercase tracking-[0.2em] text-rose">
+                In emerald & rose
               </div>
             </div>
           </div>
@@ -629,11 +643,18 @@ function Footer() {
   return (
     <footer className="border-t border-emerald-deep/15 bg-cream py-10">
       <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-4 px-6 text-xs text-muted-foreground md:flex-row md:px-10">
-        <div className="font-serif text-lg text-emerald-deep">
-          Blimax <span className="text-gold">✦</span>
+        <div className="flex items-center gap-2 font-serif text-lg text-emerald-deep">
+          <img
+            src={logoAsset.url}
+            alt="Blimax"
+            width={28}
+            height={28}
+            className="h-7 w-7 rounded-full ring-1 ring-gold/40"
+          />
+          Blimax <span className="text-rose">✦</span>
         </div>
         <div>© {new Date().getFullYear()} Blimax Endorsements. All rights reserved.</div>
-        <div className="uppercase tracking-[0.2em]">Crafted in emerald & gold</div>
+        <div className="uppercase tracking-[0.2em]">Crafted in emerald, gold & rose</div>
       </div>
     </footer>
   );

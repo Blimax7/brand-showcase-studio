@@ -51,17 +51,21 @@
   --color-emerald: var(--emerald);
   --color-gold: var(--gold);
   --color-cream: var(--cream);
+  --color-blush: var(--blush);
+  --color-rose: var(--rose);
   --font-serif: "Cormorant Garamond", ui-serif, Georgia, serif;
   --font-sans: "Karla", ui-sans-serif, system-ui, sans-serif;
 }
 
 :root {
   --radius: 0.25rem;
-  /* Emerald Prestige palette */
+  /* Emerald Prestige palette + Blush accents */
   --emerald-deep: oklch(0.28 0.07 165);
   --emerald: oklch(0.42 0.10 165);
   --gold: oklch(0.78 0.13 85);
   --cream: oklch(0.96 0.03 90);
+  --blush: oklch(0.88 0.06 15);
+  --rose: oklch(0.68 0.19 5);
 
   --background: oklch(0.96 0.03 90);
   --foreground: oklch(0.20 0.04 165);
@@ -163,6 +167,14 @@
 
 @utility text-gold-gradient {
   background: linear-gradient(135deg, #f0d78c 0%, #c9a84c 50%, #8a6f2c 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+}
+
+@utility text-rose-gradient {
+  background: linear-gradient(135deg, #f7c6d0 0%, #e88ab0 50%, #c9a84c 100%);
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
