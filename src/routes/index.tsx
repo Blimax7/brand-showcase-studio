@@ -27,7 +27,7 @@ export const Route = createFileRoute("/")({
       {
         name: "description",
         content:
-          "The endorsement portfolio of Blimax. Featured campaigns with Chanel, Louis Vuitton, Nykaa, Google, Samsung, Microsoft and AliExpress.",
+          "The endorsement portfolio of Blimax. Featured campaigns with Chanel, Louis Vuitton, Nykaa, Google and Samsung.",
       },
     ],
   }),
@@ -98,8 +98,6 @@ const brandRoster = [
   "Nykaa",
   "Google",
   "Samsung",
-  "Microsoft",
-  "AliExpress",
 ];
 
 const socials = [
@@ -453,7 +451,7 @@ function SocialProof() {
               The audience
             </div>
             <h2 className="mt-3 font-serif text-4xl text-emerald-deep md:text-5xl">
-              4.8M readers, viewers & shoppers.
+              2M+ viewers & readers.
             </h2>
           </div>
           <p className="max-w-sm text-sm text-muted-foreground">
