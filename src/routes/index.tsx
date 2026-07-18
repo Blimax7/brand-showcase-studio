@@ -51,7 +51,7 @@ type Category = {
 const categories: Category[] = [
   {
     rank: "01",
-    eyebrow: "Rank 01 — Beauty & Fashion",
+    eyebrow: "01 — Beauty & Fashion",
     title: "The atelier of light and skin.",
     copy: "House campaigns and seasonal edits for the icons of couture and clean beauty. Editorial-first, product-obsessed.",
     image: beautyImg,
@@ -65,7 +65,7 @@ const categories: Category[] = [
   },
   {
     rank: "02",
-    eyebrow: "Rank 02 — Jewelry",
+    eyebrow: "02 — Jewelry",
     title: "Heirlooms, worn like a signature.",
     copy: "High jewelry and everyday fine — sculpted around the collarbone, the wrist, the ear. Every stone earns its light.",
     image: jewelryImg,
@@ -79,11 +79,11 @@ const categories: Category[] = [
   },
   {
     rank: "03",
-    eyebrow: "Rank 03 — Tech & Electronics",
+    eyebrow: "03 — Tech & Electronics",
     title: "Instruments for a modern life.",
     copy: "Devices, platforms and everyday tools chosen for craft, not novelty. Long-form reviews, product films, launch keynotes.",
     image: techImg,
-    imageAlt: "Ambassador holding a smartphone and laptop under emerald lighting",
+    imageAlt: "Ambassadors with Samsung smartphone, laptop and watch under emerald and rose lighting",
     icon: Cpu,
     brands: [
       { name: "Google", product: "Pixel 10 Pro — Creator Program", note: "Launch film" },
