@@ -17,6 +17,9 @@ import heroImg from "@/assets/hero.jpg";
 import beautyImg from "@/assets/beauty.jpg";
 import jewelryImg from "@/assets/jewelry.jpg";
 import techImg from "@/assets/tech.jpg";
+import chanelImg from "@/assets/chanel.jpg";
+import louisvuittonImg from "@/assets/louisvuitton.jpg";
+import nykaaImg from "@/assets/nykaa.jpg";
 import logoAsset from "@/assets/blimax-logo.jpg.asset.json";
 
 export const Route = createFileRoute("/")({
