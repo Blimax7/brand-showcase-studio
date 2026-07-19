@@ -364,20 +364,24 @@ function CategorySection({ category }: { category: Category }) {
           }`}
         >
           <div className="lg:col-span-6">
-            <div className="relative aspect-[4/5] overflow-hidden rounded-sm">
+            <a
+              href={`#${anchor}-brands`}
+              className="group relative block aspect-[4/5] overflow-hidden rounded-sm"
+              aria-label={`See brands in ${category.eyebrow}`}
+            >
               <img
                 src={category.image}
                 alt={category.imageAlt}
                 loading="lazy"
                 width={1400}
                 height={1600}
-                className="h-full w-full object-cover"
+                className="h-full w-full object-cover transition duration-700 group-hover:scale-[1.02]"
               />
               <div className="absolute left-0 top-0 flex items-center gap-3 bg-gold px-4 py-2 text-[10px] uppercase tracking-[0.3em] text-emerald-deep">
                 <Icon className="h-3 w-3" />
                 {category.eyebrow}
               </div>
-            </div>
+            </a>
           </div>
           <div className="lg:col-span-6 lg:pt-6">
             <div
@@ -431,15 +435,21 @@ function CategorySection({ category }: { category: Category }) {
               </div>
             )}
 
-            <ul className="mt-10 divide-y divide-current/10">
+            <ul id={`${anchor}-brands`} className="mt-10 divide-y divide-current/10 scroll-mt-24">
               {category.brands.map((b) => (
                 <li
                   key={b.name + b.product}
-                  className={`grid grid-cols-12 items-baseline gap-4 py-5 ${
-                    dark ? "border-cream/10" : "border-emerald-deep/10"
-                  }`}
+                  className={dark ? "border-cream/10" : "border-emerald-deep/10"}
                   style={{ borderTop: "1px solid currentColor", opacity: 1 }}
                 >
+                  <a
+                    href={b.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={`group grid grid-cols-12 items-baseline gap-4 py-5 transition ${
+                      dark ? "hover:text-rose" : "hover:text-rose"
+                    }`}
+                  >
                   <div
                     className={`col-span-4 font-serif text-2xl ${
                       dark ? "text-gold" : "text-emerald-deep"
@@ -455,12 +465,14 @@ function CategorySection({ category }: { category: Category }) {
                     {b.product}
                   </div>
                   <div
-                    className={`col-span-2 text-right text-[10px] uppercase tracking-[0.2em] ${
+                    className={`col-span-2 flex items-center justify-end gap-1 text-right text-[10px] uppercase tracking-[0.2em] ${
                       dark ? "text-cream/50" : "text-muted-foreground"
                     }`}
                   >
                     {b.note}
+                    <ArrowUpRight className="h-3 w-3 opacity-0 transition group-hover:opacity-100" />
                   </div>
+                  </a>
                 </li>
               ))}
             </ul>
