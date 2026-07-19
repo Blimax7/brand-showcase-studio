@@ -1,5 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { useState, type FormEvent } from "react";
+import { useState } from "react";
+import type { FormEvent, ElementType } from "react";
 import {
   Youtube,
   Twitter,
@@ -47,7 +48,7 @@ type Category = {
   copy: string;
   image: string;
   imageAlt: string;
-  icon: typeof Sparkles;
+  icon: ElementType;
   brands: { name: string; product: string; note: string; href: string }[];
   reverse?: boolean;
 };
@@ -203,12 +204,12 @@ function Hero() {
             Blimax Official
           </div>
           <h1 className="mt-6 font-serif text-5xl leading-[1.02] tracking-tight md:text-7xl lg:text-[92px]">
-            Blimax's{" "}
-            <span className="italic text-rose-gradient">Endorsements</span> —
+            Blimax&apos;s{" "}
+            <span className="italic text-rose-gradient">Endorsements</span> &mdash;
             a curated house, worn by him.
           </h1>
           <p className="mt-8 max-w-xl text-lg leading-relaxed text-cream/80">
-            Beauty, jewelry and technology — the brands, the products, and the
+            Beauty, jewelry and technology &mdash; the brands, the products, and the
             campaigns behind them. Written, styled and stood behind, personally.
           </p>
           <div className="mt-10 flex flex-wrap items-center gap-4">
@@ -254,7 +255,7 @@ function Hero() {
             <div className="absolute bottom-6 left-6 right-6 flex items-end justify-between">
               <div>
                 <div className="text-[10px] uppercase tracking-[0.3em] text-gold">
-                  Cover · SS 26
+                  Cover &middot; SS 26
                 </div>
                 <div className="flex items-center gap-2">
                   <img
@@ -299,7 +300,7 @@ function BrandMarquee() {
           ))}
         </div>
       </div>
-      <style>{`@keyframes marquee { from { transform: translateX(0);} to { transform: translateX(-50%);} }`}</style>
+      <style dangerouslySetInnerHTML={{ __html: `@keyframes marquee { from { transform: translateX(0);} to { transform: translateX(-50%);} }` }} />
     </section>
   );
 }
@@ -311,7 +312,7 @@ function About() {
         <div className="grid grid-cols-1 gap-12 md:grid-cols-12 md:gap-10">
           <div className="md:col-span-5">
             <div className="font-serif text-[120px] leading-none text-emerald-deep/10 md:text-[160px]">
-              “
+              &ldquo;
             </div>
             <div className="-mt-16 text-xs uppercase tracking-[0.4em] text-emerald md:-mt-20">
               About
@@ -322,11 +323,11 @@ function About() {
 
             <div className="mt-10 grid grid-cols-1 gap-6 border-t border-emerald-deep/10 pt-8 text-sm text-muted-foreground sm:grid-cols-2 md:grid-cols-1">
               <div>
-                <div className="font-serif text-2xl text-emerald-deep">India · USA · Singapore · Japan</div>
+                <div className="font-serif text-2xl text-emerald-deep">India &middot; USA &middot; Singapore &middot; Japan</div>
                 <div className="mt-1 uppercase tracking-[0.2em]">Home bases</div>
               </div>
               <div>
-                <div className="font-serif text-2xl text-emerald-deep">EN · FR · HI</div>
+                <div className="font-serif text-2xl text-emerald-deep">EN &middot; FR &middot; HI</div>
                 <div className="mt-1 uppercase tracking-[0.2em]">Languages</div>
               </div>
               <div>
@@ -340,7 +341,7 @@ function About() {
             <div className="space-y-6 text-lg leading-relaxed text-foreground/80 md:pt-4">
               <p>
                 Blimax is an independent creator and endorsement curator, sharing
-                personal recommendations across beauty, jewelry, and technology —
+                personal recommendations across beauty, jewelry, and technology &mdash;
                 a considered voice for products worth standing behind.
               </p>
               <p>
@@ -561,7 +562,7 @@ function SocialProof() {
           </div>
           <p className="max-w-sm text-sm text-muted-foreground">
             A private community that buys what Blimax wears. Every platform is
-            hand-run — no ghosts, no bots.
+            hand-run &mdash; no ghosts, no bots.
           </p>
         </div>
         <div className="mt-14 grid grid-cols-1 gap-px overflow-hidden rounded-sm bg-emerald-deep/10 sm:grid-cols-2">
@@ -613,7 +614,7 @@ function Testimonials() {
             >
               <Quote className="h-6 w-6 text-gold" />
               <blockquote className="mt-6 font-serif text-xl leading-snug text-emerald-deep">
-                “{t.quote}”
+                &ldquo;{t.quote}&rdquo;
               </blockquote>
               <figcaption className="mt-8 border-t border-emerald-deep/10 pt-4">
                 <div className="font-medium text-emerald-deep">{t.author}</div>
@@ -657,16 +658,16 @@ function ContactLogin() {
             Say hello.
           </h2>
           <p className="mt-6 max-w-md text-cream/80">
-            For endorsement enquiries, press, and personal recommendations —
-            use the form and I'll get back to you directly.
+            For endorsement enquiries, press, and personal recommendations &mdash;
+            use the form and I&apos;ll get back to you directly.
           </p>
           <div className="mt-10 space-y-4 text-sm">
             <div className="flex items-center gap-3">
-              <span className="text-gold">·</span>
+              <span className="text-gold">&middot;</span>
               <span>Response within 48 hours, on weekdays</span>
             </div>
             <div className="flex items-center gap-3">
-              <span className="text-gold">·</span>
+              <span className="text-gold">&middot;</span>
               <span>Based across India, USA, Singapore & Japan</span>
             </div>
           </div>
@@ -686,7 +687,7 @@ function ContactLogin() {
 
           {sent ? (
             <div className="mt-10 rounded-sm border border-gold/40 bg-emerald/40 p-6 text-sm text-cream">
-              Thank you{ name ? `, ${name}` : "" } — your message has been
+              Thank you{name ? `, ${name}` : ""} &mdash; your message has been
               received. The studio will follow up within 48 hours.
             </div>
           ) : (
