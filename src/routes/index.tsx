@@ -43,7 +43,7 @@ type Category = {
   image: string;
   imageAlt: string;
   icon: typeof Sparkles;
-  brands: { name: string; product: string; note: string }[];
+  brands: { name: string; product: string; note: string; href: string }[];
   reverse?: boolean;
 };
 
@@ -57,9 +57,9 @@ const categories: Category[] = [
     imageAlt: "Beauty ambassador holding luxury skincare bottles",
     icon: Sparkles,
     brands: [
-      { name: "Chanel", product: "N°1 de Chanel — Revitalizing Serum", note: "Personally recommended" },
-      { name: "Louis Vuitton", product: "Capucines Mini — Emerald Edition", note: "My pick" },
-      { name: "Nykaa", product: "Nykaa Naturals — Vitamin C Ritual", note: "In my rotation" },
+      { name: "Chanel", product: "N°1 de Chanel — Revitalizing Serum", note: "Personally recommended", href: "https://www.chanel.com" },
+      { name: "Louis Vuitton", product: "Capucines Mini — Emerald Edition", note: "My pick", href: "https://www.louisvuitton.com" },
+      { name: "Nykaa", product: "Nykaa Naturals — Vitamin C Ritual", note: "In my rotation", href: "https://www.nykaa.com" },
     ],
   },
   {
@@ -71,9 +71,9 @@ const categories: Category[] = [
     imageAlt: "Model wearing an emerald and gold high-jewelry necklace",
     icon: Gem,
     brands: [
-      { name: "Louis Vuitton", product: "LV Diamonds — Star Blossom", note: "Personally recommended" },
-      { name: "Chanel", product: "Coco Crush — 18K Beige Gold", note: "In my rotation" },
-      { name: "Blimax Édit", product: "Emerald Rope Necklace", note: "Personal curation" },
+      { name: "Louis Vuitton", product: "LV Diamonds — Star Blossom", note: "Personally recommended", href: "https://www.louisvuitton.com/eng-e1/high-jewelry" },
+      { name: "Chanel", product: "Coco Crush — 18K Beige Gold", note: "In my rotation", href: "https://www.chanel.com/us/fine-jewelry/" },
+      { name: "Swarovski", product: "Millenia Collection", note: "Personally recommended", href: "https://www.swarovski.com" },
     ],
   },
   {
@@ -85,10 +85,10 @@ const categories: Category[] = [
     imageAlt: "Ambassadors with Samsung smartphone, laptop and watch under emerald and rose lighting",
     icon: Cpu,
     brands: [
-      { name: "Google", product: "Pixel 10 Pro", note: "My pick" },
-      { name: "Samsung", product: "Galaxy S — Ultra Series", note: "Personally recommended" },
-      { name: "Samsung", product: "Galaxy Z Fold — Foldable", note: "In my rotation" },
-      { name: "Samsung", product: "Galaxy Watch — Wellness Edit", note: "Recently featured" },
+      { name: "Google", product: "Chromebook", note: "Used by Blimax", href: "https://www.google.com/chromebook/" },
+      { name: "Samsung", product: "Galaxy S25 Ultra", note: "Personally recommended", href: "https://www.samsung.com/global/galaxy/galaxy-s25-ultra/" },
+      { name: "Ant Esports", product: "Ant E-Mouse", note: "Recommended for gamers", href: "https://www.antesports.com" },
+      { name: "HyperX", product: "Cloud III — Gaming Headset", note: "In my rotation", href: "https://hyperx.com" },
     ],
     reverse: true,
   },
@@ -195,7 +195,7 @@ function Hero() {
         <div className="lg:col-span-6 lg:pt-10">
           <div className="flex items-center gap-3 text-xs uppercase tracking-[0.4em] text-gold">
             <span className="h-px w-10 bg-gold" />
-            The Endorsement House
+            Blimax Official
           </div>
           <h1 className="mt-6 font-serif text-5xl leading-[1.02] tracking-tight md:text-7xl lg:text-[92px]">
             Blimax's{" "}
