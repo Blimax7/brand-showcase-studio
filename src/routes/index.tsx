@@ -20,6 +20,11 @@ import chanelImg from "@/assets/chanel.jpg";
 import louisvuittonImg from "@/assets/louisvuitton.jpg";
 import nykaaImg from "@/assets/nykaa.jpg";
 import logoImg from "@/assets/blimax-logo.jpg";
+import logoChanel from "@/assets/logo-chanel.png";
+import logoSamsung from "@/assets/logo-samsung.png";
+import logoGoogle from "@/assets/logo-google.png";
+import logoNykaa from "@/assets/logo-nykaa.png";
+import logoRareBeauty from "@/assets/logo-rarebeauty.png";
 
 export const Route = createFileRoute("/")({
   component: Index,
@@ -59,7 +64,7 @@ const categories: Category[] = [
     brands: [
       { name: "Chanel", product: "N°1 de Chanel — Revitalizing Serum", note: "Personally recommended", href: "https://www.chanel.com" },
       { name: "Louis Vuitton", product: "Capucines Mini — Emerald Edition", note: "My pick", href: "https://www.louisvuitton.com" },
-      { name: "Nykaa", product: "Nykaa Naturals — Vitamin C Ritual", note: "In my rotation", href: "https://www.nykaa.com" },
+      { name: "Rare Beauty", product: "Soft Pinch Liquid Blush", note: "In my rotation", href: "https://www.rarebeauty.com" },
     ],
   },
   {
@@ -95,11 +100,11 @@ const categories: Category[] = [
 ];
 
 const brandRoster = [
-  "Chanel",
-  "Louis Vuitton",
-  "Nykaa",
-  "Google",
-  "Samsung",
+  { name: "Chanel", logo: logoChanel },
+  { name: "Rare Beauty", logo: logoRareBeauty },
+  { name: "Nykaa", logo: logoNykaa },
+  { name: "Google", logo: logoGoogle },
+  { name: "Samsung", logo: logoSamsung },
 ];
 
 const socials = [
@@ -276,19 +281,20 @@ function Hero() {
 function BrandMarquee() {
   const items = [...brandRoster, ...brandRoster];
   return (
-    <section className="border-y border-border bg-cream py-8">
+    <section className="border-y border-border bg-cream py-10">
       <div className="mb-6 text-center text-[10px] uppercase tracking-[0.4em] text-muted-foreground">
         Brands I personally recommend
       </div>
       <div className="relative overflow-hidden">
-        <div className="flex animate-[marquee_40s_linear_infinite] gap-16 whitespace-nowrap">
+        <div className="flex animate-[marquee_40s_linear_infinite] items-center gap-16 whitespace-nowrap">
           {items.map((b, i) => (
-            <span
-              key={`${b}-${i}`}
-              className="font-serif text-2xl tracking-widest text-emerald-deep/70 md:text-3xl"
-            >
-              {b.toUpperCase()}
-              <span className="ml-16 text-gold">✦</span>
+            <span key={`${b.name}-${i}`} className="flex items-center gap-16">
+              <img
+                src={b.logo}
+                alt={`${b.name} logo`}
+                className="h-8 w-auto object-contain opacity-80 grayscale transition hover:opacity-100 hover:grayscale-0 md:h-10"
+              />
+              <span className="text-gold">✦</span>
             </span>
           ))}
         </div>
@@ -301,39 +307,47 @@ function BrandMarquee() {
 function About() {
   return (
     <section id="about" className="bg-background py-24 md:py-32">
-      <div className="mx-auto grid max-w-6xl grid-cols-1 gap-16 px-6 md:grid-cols-12 md:px-10">
-        <div className="md:col-span-4">
-          <div className="text-xs uppercase tracking-[0.4em] text-emerald">
-            About
+      <div className="mx-auto max-w-6xl px-6 md:px-10">
+        <div className="grid grid-cols-1 gap-12 md:grid-cols-12 md:gap-10">
+          <div className="md:col-span-5">
+            <div className="font-serif text-[120px] leading-none text-emerald-deep/10 md:text-[160px]">
+              “
+            </div>
+            <div className="-mt-16 text-xs uppercase tracking-[0.4em] text-emerald md:-mt-20">
+              About
+            </div>
+            <h2 className="mt-4 font-serif text-4xl leading-tight text-emerald-deep md:text-5xl">
+              Taste is the entire business.
+            </h2>
+
+            <div className="mt-10 grid grid-cols-1 gap-6 border-t border-emerald-deep/10 pt-8 text-sm text-muted-foreground sm:grid-cols-2 md:grid-cols-1">
+              <div>
+                <div className="font-serif text-2xl text-emerald-deep">India · USA · Singapore · Japan</div>
+                <div className="mt-1 uppercase tracking-[0.2em]">Home bases</div>
+              </div>
+              <div>
+                <div className="font-serif text-2xl text-emerald-deep">EN · FR · HI</div>
+                <div className="mt-1 uppercase tracking-[0.2em]">Languages</div>
+              </div>
+              <div>
+                <div className="font-serif text-2xl text-emerald-deep">Independent</div>
+                <div className="mt-1 uppercase tracking-[0.2em]">Creator & curator</div>
+              </div>
+            </div>
           </div>
-          <h2 className="mt-4 font-serif text-4xl leading-tight text-emerald-deep md:text-5xl">
-            Taste is the entire business.
-          </h2>
-        </div>
-        <div className="space-y-6 text-lg leading-relaxed text-foreground/80 md:col-span-8">
-          <p>
-            Blimax is an independent creator and endorsement curator, sharing
-            personal recommendations across beauty, jewelry, and technology —
-            a considered voice for products worth standing behind.
-          </p>
-          <p>
-            Every brand featured here is chosen personally and styled personally.
-            Unless a piece is explicitly noted as a paid partnership, mentions
-            reflect my own recommendation. No mass posting. No noise.
-          </p>
-          <div className="gold-rule my-8" />
-          <div className="grid grid-cols-2 gap-6 text-sm text-muted-foreground md:grid-cols-3">
-            <div>
-              <div className="font-serif text-2xl text-emerald-deep">India · USA · Singapore · Japan</div>
-              <div className="mt-1 uppercase tracking-[0.2em]">Home bases</div>
-            </div>
-            <div>
-              <div className="font-serif text-2xl text-emerald-deep">EN · FR · HI</div>
-              <div className="mt-1 uppercase tracking-[0.2em]">Languages</div>
-            </div>
-            <div>
-              <div className="font-serif text-2xl text-emerald-deep">Independent</div>
-              <div className="mt-1 uppercase tracking-[0.2em]">Creator & curator</div>
+
+          <div className="md:col-span-7 md:border-l md:border-emerald-deep/10 md:pl-14">
+            <div className="space-y-6 text-lg leading-relaxed text-foreground/80 md:pt-4">
+              <p>
+                Blimax is an independent creator and endorsement curator, sharing
+                personal recommendations across beauty, jewelry, and technology —
+                a considered voice for products worth standing behind.
+              </p>
+              <p>
+                Every brand featured here is chosen personally and styled personally.
+                Unless a piece is explicitly noted as a paid partnership, mentions
+                reflect my own recommendation. No mass posting. No noise.
+              </p>
             </div>
           </div>
         </div>
@@ -426,7 +440,7 @@ function CategorySection({ category }: { category: Category }) {
                 />
                 <img
                   src={nykaaImg}
-                  alt="Nykaa beauty campaign"
+                  alt="Beauty and skincare product photography"
                   loading="lazy"
                   width={340}
                   height={425}
@@ -476,6 +490,26 @@ function CategorySection({ category }: { category: Category }) {
                 </li>
               ))}
             </ul>
+
+            {category.rank === "01" && (
+              <a
+                href="https://www.nykaa.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group mt-6 flex items-center justify-between rounded-sm border border-emerald-deep/15 bg-cream/50 px-6 py-5 transition hover:border-gold hover:bg-cream"
+              >
+                <div>
+                  <div className="font-serif text-xl text-emerald-deep">Nykaa</div>
+                  <div className="mt-1 text-sm text-foreground/70">
+                    Where I shop and link everything featured on this page
+                  </div>
+                </div>
+                <div className="flex items-center gap-2 whitespace-nowrap text-[10px] uppercase tracking-[0.2em] text-muted-foreground">
+                  Retail partner
+                  <ArrowUpRight className="h-3 w-3 opacity-0 transition group-hover:opacity-100" />
+                </div>
+              </a>
+            )}
           </div>
         </div>
       </div>
@@ -501,7 +535,7 @@ function SocialProof() {
             hand-run — no ghosts, no bots.
           </p>
         </div>
-        <div className="mt-14 grid grid-cols-2 gap-px overflow-hidden rounded-sm bg-emerald-deep/10 md:grid-cols-4">
+        <div className="mt-14 grid grid-cols-1 gap-px overflow-hidden rounded-sm bg-emerald-deep/10 sm:grid-cols-2">
           {socials.map((s) => {
             const I = s.icon;
             return (
