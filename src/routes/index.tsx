@@ -19,7 +19,7 @@ import techImg from "@/assets/tech.jpg";
 import chanelImg from "@/assets/chanel.jpg";
 import louisvuittonImg from "@/assets/louisvuitton.jpg";
 import nykaaImg from "@/assets/nykaa.jpg";
-import logoAsset from "@/assets/blimax-logo.jpg.asset.json";
+import logoImg from "@/assets/blimax-logo.jpg";
 
 export const Route = createFileRoute("/")({
   component: Index,
@@ -152,7 +152,7 @@ function TopNav() {
       <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4 md:px-10">
         <a href="#top" className="flex items-center gap-3">
           <img
-            src={logoAsset.url}
+            src={logoImg}
             alt="Blimax logo"
             width={40}
             height={40}
@@ -253,7 +253,7 @@ function Hero() {
                 </div>
                 <div className="flex items-center gap-2">
                   <img
-                    src={logoAsset.url}
+                    src={logoImg}
                     alt=""
                     width={28}
                     height={28}
@@ -701,7 +701,7 @@ function Footer() {
         <div className="flex flex-col items-center justify-between gap-4 md:flex-row">
           <div className="flex items-center gap-2 font-serif text-lg text-emerald-deep">
             <img
-              src={logoAsset.url}
+              src={logoImg}
               alt="Blimax"
               width={28}
               height={28}
