@@ -10,7 +10,6 @@ import {
   Quote,
   Lock,
   ArrowUpRight,
-  Mail,
 } from "lucide-react";
 
 import heroImg from "@/assets/hero.jpg";
@@ -30,7 +29,7 @@ export const Route = createFileRoute("/")({
       {
         name: "description",
         content:
-          "The endorsement portfolio of Blimax. Featured campaigns with Chanel, Louis Vuitton, Nykaa, Google and Samsung.",
+          "The personal endorsement portfolio of Blimax — brands and products I wear, use and recommend across beauty, jewelry and tech.",
       },
     ],
   }),
@@ -52,44 +51,44 @@ const categories: Category[] = [
   {
     rank: "01",
     eyebrow: "01 — Beauty & Fashion",
-    title: "The atelier of light and skin.",
-    copy: "House campaigns and seasonal edits for the icons of couture and clean beauty. Editorial-first, product-obsessed.",
+    title: "Beauty & fashion I personally wear.",
+    copy: "A short list of couture and clean-beauty pieces I've chosen to feature — brands I actually reach for, styled the way I wear them.",
     image: beautyImg,
     imageAlt: "Beauty ambassador holding luxury skincare bottles",
     icon: Sparkles,
     brands: [
-      { name: "Chanel", product: "N°1 de Chanel — Revitalizing Serum", note: "SS 26 face" },
-      { name: "Louis Vuitton", product: "Capucines Mini — Emerald Edition", note: "Global campaign" },
-      { name: "Nykaa", product: "Nykaa Naturals — Vitamin C Ritual", note: "Digital brand film" },
+      { name: "Chanel", product: "N°1 de Chanel — Revitalizing Serum", note: "Personally recommended" },
+      { name: "Louis Vuitton", product: "Capucines Mini — Emerald Edition", note: "My pick" },
+      { name: "Nykaa", product: "Nykaa Naturals — Vitamin C Ritual", note: "In my rotation" },
     ],
   },
   {
     rank: "02",
     eyebrow: "02 — Jewelry",
-    title: "Heirlooms, worn like a signature.",
-    copy: "High jewelry and everyday fine — sculpted around the collarbone, the wrist, the ear. Every stone earns its light.",
+    title: "Jewelry I've personally chosen to feature.",
+    copy: "Fine and high-jewelry pieces I love wearing — the necklaces, cuffs and rings I've curated for myself and recommend to anyone who asks.",
     image: jewelryImg,
     imageAlt: "Model wearing an emerald and gold high-jewelry necklace",
     icon: Gem,
     brands: [
-      { name: "Louis Vuitton", product: "LV Diamonds — Star Blossom", note: "Bridal chapter" },
-      { name: "Chanel", product: "Coco Crush — 18K Beige Gold", note: "Muse, capsule" },
+      { name: "Louis Vuitton", product: "LV Diamonds — Star Blossom", note: "Personally recommended" },
+      { name: "Chanel", product: "Coco Crush — 18K Beige Gold", note: "In my rotation" },
       { name: "Blimax Édit", product: "Emerald Rope Necklace", note: "Personal curation" },
     ],
   },
   {
     rank: "03",
     eyebrow: "03 — Tech & Electronics",
-    title: "Instruments for a modern life.",
-    copy: "Devices, platforms and everyday tools chosen for craft, not novelty. Long-form reviews, product films, launch keynotes.",
+    title: "Tech I actually use every day.",
+    copy: "The phones, foldables and wearables I've picked for myself — recommendations from daily use, not paid placements.",
     image: techImg,
     imageAlt: "Ambassadors with Samsung smartphone, laptop and watch under emerald and rose lighting",
     icon: Cpu,
     brands: [
-      { name: "Google", product: "Pixel 10 Pro — Creator Program", note: "Launch film" },
-      { name: "Samsung", product: "Galaxy S — Ultra Series", note: "Global ambassador" },
-      { name: "Samsung", product: "Galaxy Z Fold — Foldable Campaign", note: "Tech residency" },
-      { name: "Samsung", product: "Galaxy Watch — Wellness Edit", note: "Seasonal host" },
+      { name: "Google", product: "Pixel 10 Pro", note: "My pick" },
+      { name: "Samsung", product: "Galaxy S — Ultra Series", note: "Personally recommended" },
+      { name: "Samsung", product: "Galaxy Z Fold — Foldable", note: "In my rotation" },
+      { name: "Samsung", product: "Galaxy Watch — Wellness Edit", note: "Recently featured" },
     ],
     reverse: true,
   },
@@ -279,7 +278,7 @@ function BrandMarquee() {
   return (
     <section className="border-y border-border bg-cream py-8">
       <div className="mb-6 text-center text-[10px] uppercase tracking-[0.4em] text-muted-foreground">
-        Endorsed & featured
+        Brands I personally recommend
       </div>
       <div className="relative overflow-hidden">
         <div className="flex animate-[marquee_40s_linear_infinite] gap-16 whitespace-nowrap">
@@ -313,15 +312,14 @@ function About() {
         </div>
         <div className="space-y-6 text-lg leading-relaxed text-foreground/80 md:col-span-8">
           <p>
-            Blimax is a brand ambassador and endorsement curator, working with
-            houses across beauty, jewelry, and technology. The work sits between
-            editorial and commerce — a considered voice for products worth
-            standing behind.
+            Blimax is an independent creator and endorsement curator, sharing
+            personal recommendations across beauty, jewelry, and technology —
+            a considered voice for products worth standing behind.
           </p>
           <p>
-            Every partnership is chosen personally, styled personally, and
-            shipped with campaigns that hold up next to the brand's own
-            direction. No mass posting. No noise. A short list of the finest.
+            Every brand featured here is chosen personally and styled personally.
+            Unless a piece is explicitly noted as a paid partnership, mentions
+            reflect my own recommendation. No mass posting. No noise.
           </p>
           <div className="gold-rule my-8" />
           <div className="grid grid-cols-2 gap-6 text-sm text-muted-foreground md:grid-cols-3">
@@ -334,8 +332,8 @@ function About() {
               <div className="mt-1 uppercase tracking-[0.2em]">Languages</div>
             </div>
             <div>
-              <div className="font-serif text-2xl text-emerald-deep">Talent & Legal</div>
-              <div className="mt-1 uppercase tracking-[0.2em]">Represented by IMG</div>
+              <div className="font-serif text-2xl text-emerald-deep">Independent</div>
+              <div className="mt-1 uppercase tracking-[0.2em]">Creator & curator</div>
             </div>
           </div>
         </div>
@@ -562,8 +560,10 @@ function Testimonials() {
 }
 
 function ContactLogin() {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const [name, setName] = useState("");
+  const [fromEmail, setFromEmail] = useState("");
+  const [company, setCompany] = useState("");
+  const [message, setMessage] = useState("");
   const [sent, setSent] = useState(false);
 
   function onSubmit(e: FormEvent) {
@@ -576,37 +576,23 @@ function ContactLogin() {
       <div className="mx-auto grid max-w-6xl grid-cols-1 gap-16 px-6 md:grid-cols-2 md:px-10">
         <div>
           <div className="text-xs uppercase tracking-[0.4em] text-gold">
-            Contact & Private Access
+            Contact
           </div>
           <h2 className="mt-4 font-serif text-4xl leading-tight md:text-5xl">
-            My details, and the door to the client suite.
+            Say hello.
           </h2>
           <p className="mt-6 max-w-md text-cream/80">
-            For endorsement enquiries, press, and brand suite login. Members see
-            campaign decks, rate cards, and upcoming availability.
+            For endorsement enquiries, press, and personal recommendations —
+            use the form and I'll get back to you directly.
           </p>
           <div className="mt-10 space-y-4 text-sm">
             <div className="flex items-center gap-3">
-              <Mail className="h-4 w-4 text-gold" />
-              <a href="mailto:blimtheindustry@gmail.com" className="hover:text-gold">
-                blimtheindustry@gmail.com
-              </a>
-              <span className="text-[10px] uppercase tracking-[0.2em] text-cream/50">Official Contact Email</span>
-            </div>
-            <div className="flex items-center gap-3">
-              <Mail className="h-4 w-4 text-gold" />
-              <a href="mailto:emilysharon69@gmail.com" className="hover:text-gold">
-                emilysharon69@gmail.com
-              </a>
-              <span className="text-[10px] uppercase tracking-[0.2em] text-cream/50">Brand Manager</span>
-            </div>
-            <div className="flex items-center gap-3">
-              <span className="text-gold">·</span>
-              <span>Bookings via IMG Talent · India, USA, Singapore, Japan</span>
-            </div>
-            <div className="flex items-center gap-3">
               <span className="text-gold">·</span>
               <span>Response within 48 hours, on weekdays</span>
+            </div>
+            <div className="flex items-center gap-3">
+              <span className="text-gold">·</span>
+              <span>Based across India, USA, Singapore & Japan</span>
             </div>
           </div>
         </div>
@@ -616,21 +602,33 @@ function ContactLogin() {
           className="relative rounded-sm border border-gold/30 bg-emerald-deep/60 p-8 backdrop-blur"
         >
           <div className="flex items-center justify-between">
-            <div className="font-serif text-2xl text-gold">Client Suite</div>
+            <div className="font-serif text-2xl text-gold">Get in touch</div>
             <Lock className="h-4 w-4 text-gold" />
           </div>
           <div className="mt-1 text-[10px] uppercase tracking-[0.3em] text-cream/60">
-            Sign in to your brand portal
+            Send a message to the studio
           </div>
 
           {sent ? (
             <div className="mt-10 rounded-sm border border-gold/40 bg-emerald/40 p-6 text-sm text-cream">
-              Thank you — a secure link has been sent to{" "}
-              <span className="text-gold">{email || "your inbox"}</span>. The
-              studio will follow up shortly.
+              Thank you{ name ? `, ${name}` : "" } — your message has been
+              received. The studio will follow up within 48 hours.
             </div>
           ) : (
             <div className="mt-8 space-y-5">
+              <div>
+                <label className="text-[10px] uppercase tracking-[0.3em] text-cream/60">
+                  Your name
+                </label>
+                <input
+                  type="text"
+                  required
+                  value={name}
+                  onChange={(e) => setName(e.target.value)}
+                  placeholder="Full name"
+                  className="mt-2 w-full border-b border-cream/20 bg-transparent py-2 text-cream placeholder:text-cream/30 focus:border-gold focus:outline-none"
+                />
+              </div>
               <div>
                 <label className="text-[10px] uppercase tracking-[0.3em] text-cream/60">
                   Email
@@ -638,34 +636,44 @@ function ContactLogin() {
                 <input
                   type="email"
                   required
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
+                  value={fromEmail}
+                  onChange={(e) => setFromEmail(e.target.value)}
                   placeholder="you@brand.com"
                   className="mt-2 w-full border-b border-cream/20 bg-transparent py-2 text-cream placeholder:text-cream/30 focus:border-gold focus:outline-none"
                 />
               </div>
               <div>
                 <label className="text-[10px] uppercase tracking-[0.3em] text-cream/60">
-                  Access code
+                  Brand / company (optional)
                 </label>
                 <input
-                  type="password"
-                  value={password}
-                  onChange={(e) => setPassword(e.target.value)}
-                  placeholder="••••••••"
+                  type="text"
+                  value={company}
+                  onChange={(e) => setCompany(e.target.value)}
+                  placeholder="Company name"
                   className="mt-2 w-full border-b border-cream/20 bg-transparent py-2 text-cream placeholder:text-cream/30 focus:border-gold focus:outline-none"
+                />
+              </div>
+              <div>
+                <label className="text-[10px] uppercase tracking-[0.3em] text-cream/60">
+                  Message
+                </label>
+                <textarea
+                  required
+                  rows={4}
+                  value={message}
+                  onChange={(e) => setMessage(e.target.value)}
+                  placeholder="Tell me a little about the project…"
+                  className="mt-2 w-full resize-none border-b border-cream/20 bg-transparent py-2 text-cream placeholder:text-cream/30 focus:border-gold focus:outline-none"
                 />
               </div>
               <button
                 type="submit"
                 className="mt-6 inline-flex w-full items-center justify-center gap-2 rounded-full bg-gold px-6 py-3 text-sm uppercase tracking-[0.2em] text-emerald-deep transition hover:bg-cream"
               >
-                Enter the suite
+                Send message
                 <ArrowUpRight className="h-4 w-4" />
               </button>
-              <div className="text-center text-[10px] uppercase tracking-[0.3em] text-cream/50">
-                Or request access · blimtheindustry@gmail.com
-              </div>
             </div>
           )}
         </form>
@@ -677,19 +685,25 @@ function ContactLogin() {
 function Footer() {
   return (
     <footer className="border-t border-emerald-deep/15 bg-cream py-10">
-      <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-4 px-6 text-xs text-muted-foreground md:flex-row md:px-10">
-        <div className="flex items-center gap-2 font-serif text-lg text-emerald-deep">
-          <img
-            src={logoAsset.url}
-            alt="Blimax"
-            width={28}
-            height={28}
-            className="h-7 w-7 rounded-full ring-1 ring-gold/40"
-          />
-          Blimax <span className="text-rose">✦</span>
+      <div className="mx-auto flex max-w-7xl flex-col gap-6 px-6 text-xs text-muted-foreground md:px-10">
+        <div className="flex flex-col items-center justify-between gap-4 md:flex-row">
+          <div className="flex items-center gap-2 font-serif text-lg text-emerald-deep">
+            <img
+              src={logoAsset.url}
+              alt="Blimax"
+              width={28}
+              height={28}
+              className="h-7 w-7 rounded-full ring-1 ring-gold/40"
+            />
+            Blimax <span className="text-rose">✦</span>
+          </div>
+          <div>© {new Date().getFullYear()} Blimax. All rights reserved.</div>
+          <div className="uppercase tracking-[0.2em]">Crafted in emerald, gold & rose</div>
         </div>
-        <div>© {new Date().getFullYear()} Blimax Endorsements. All rights reserved.</div>
-        <div className="uppercase tracking-[0.2em]">Crafted in emerald, gold & rose</div>
+        <p className="mx-auto max-w-3xl text-center text-[11px] leading-relaxed text-muted-foreground/80">
+          Blimax is an independent creator. Brand mentions reflect personal
+          recommendations unless otherwise noted as a paid partnership.
+        </p>
       </div>
     </footer>
   );
