@@ -17,7 +17,7 @@ import beautyImg from "@/assets/beauty.jpg";
 import jewelryImg from "@/assets/jewelry.jpg";
 import techImg from "@/assets/tech.jpg";
 import chanelImg from "@/assets/chanel.jpg";
-import louisvuittonImg from "@/assets/louisvuitton.jpg";
+import sulwhasooImg from "@/assets/sulwhasoo.jpg";
 import nykaaImg from "@/assets/nykaa.jpg";
 import logoImg from "@/assets/blimax-logo.jpg";
 import logoChanel from "@/assets/logo-chanel.png";
@@ -56,14 +56,14 @@ const categories: Category[] = [
   {
     rank: "01",
     eyebrow: "01 — Beauty & Fashion",
-    title: "Beauty & fashion I personally wear.",
+    title: "Beauty & fashion I recommend.",
     copy: "A short list of couture and clean-beauty pieces I've chosen to feature — brands I actually reach for, styled the way I wear them.",
     image: beautyImg,
     imageAlt: "Beauty ambassador holding luxury skincare bottles",
     icon: Sparkles,
     brands: [
       { name: "Chanel", product: "N°1 de Chanel — Revitalizing Serum", note: "Personally recommended", href: "https://www.chanel.com" },
-      { name: "Louis Vuitton", product: "Capucines Mini — Emerald Edition", note: "My pick", href: "https://www.louisvuitton.com" },
+      { name: "Sulwhasoo", product: "First Care Activating Serum", note: "My pick", href: "https://www.sulwhasoo.com" },
       { name: "Rare Beauty", product: "Soft Pinch Liquid Blush", note: "In my rotation", href: "https://www.rarebeauty.com" },
     ],
   },
@@ -164,17 +164,17 @@ function TopNav() {
             className="h-10 w-10 rounded-full object-cover ring-1 ring-gold/40"
           />
           <span className="hidden text-[10px] uppercase tracking-[0.3em] text-muted-foreground sm:inline">
-            Est. Endorsements
+            Curated Endorsements
           </span>
         </a>
         <nav className="hidden items-center gap-8 text-sm text-muted-foreground md:flex">
           <a href="#about" className="hover:text-rose">About</a>
           <a href="#beauty" className="hover:text-rose">Beauty</a>
+          <a href="#beauty" className="hover:text-rose">Fashion</a>
           <a href="#jewelry" className="hover:text-rose">Jewelry</a>
           <a href="#tech" className="hover:text-rose">Tech</a>
-          <a href="#voices" className="hover:text-rose">Voices</a>
         </nav>
-        <a
+        
           href="#access"
           className="group inline-flex items-center gap-2 rounded-full border border-emerald-deep/30 px-4 py-2 text-xs uppercase tracking-[0.2em] text-emerald-deep transition hover:bg-emerald-deep hover:text-cream"
         >
@@ -212,14 +212,14 @@ function Hero() {
             campaigns behind them. Written, styled and stood behind, personally.
           </p>
           <div className="mt-10 flex flex-wrap items-center gap-4">
-            <a
+            
               href="#beauty"
               className="inline-flex items-center gap-2 rounded-full bg-gold px-6 py-3 text-sm uppercase tracking-[0.2em] text-emerald-deep transition hover:bg-rose hover:text-cream"
             >
               See the portfolio
               <ArrowUpRight className="h-4 w-4" />
             </a>
-            <a
+            
               href="#access"
               className="inline-flex items-center gap-2 rounded-full border border-cream/30 px-6 py-3 text-sm uppercase tracking-[0.2em] text-cream/90 transition hover:border-rose hover:text-rose"
             >
@@ -286,15 +286,15 @@ function BrandMarquee() {
         Brands I personally recommend
       </div>
       <div className="relative overflow-hidden">
-        <div className="flex animate-[marquee_40s_linear_infinite] items-center gap-16 whitespace-nowrap">
+        <div className="flex animate-[marquee_40s_linear_infinite] items-center whitespace-nowrap">
           {items.map((b, i) => (
-            <span key={`${b.name}-${i}`} className="flex items-center gap-16">
+            <span key={`${b.name}-${i}`} className="flex items-center">
               <img
                 src={b.logo}
                 alt={`${b.name} logo`}
-                className="h-8 w-auto object-contain opacity-80 grayscale transition hover:opacity-100 hover:grayscale-0 md:h-10"
+                className="h-8 w-auto object-contain md:h-10"
               />
-              <span className="text-gold">✦</span>
+              <span className="mx-8 text-gold">✦</span>
             </span>
           ))}
         </div>
@@ -349,6 +349,27 @@ function About() {
                 reflect my own recommendation. No mass posting. No noise.
               </p>
             </div>
+
+            <div className="mt-14 grid grid-cols-3 gap-6 border-t border-emerald-deep/10 pt-8">
+              <div>
+                <div className="font-serif text-3xl text-emerald-deep">48+</div>
+                <div className="mt-1 text-xs uppercase tracking-[0.2em] text-muted-foreground">
+                  Brands featured
+                </div>
+              </div>
+              <div>
+                <div className="font-serif text-3xl text-emerald-deep">3</div>
+                <div className="mt-1 text-xs uppercase tracking-[0.2em] text-muted-foreground">
+                  Categories
+                </div>
+              </div>
+              <div>
+                <div className="font-serif text-3xl text-emerald-deep">100%</div>
+                <div className="mt-1 text-xs uppercase tracking-[0.2em] text-muted-foreground">
+                  Independent
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -378,7 +399,7 @@ function CategorySection({ category }: { category: Category }) {
           }`}
         >
           <div className="lg:col-span-6">
-            <a
+            
               href={`#${anchor}-brands`}
               className="group relative block aspect-[4/5] overflow-hidden rounded-sm"
               aria-label={`See brands in ${category.eyebrow}`}
@@ -395,6 +416,14 @@ function CategorySection({ category }: { category: Category }) {
                 <Icon className="h-3 w-3" />
                 {category.eyebrow}
               </div>
+              {category.rank === "01" && (
+                <div className="absolute bottom-4 left-4 flex items-center gap-2 rounded-full bg-cream/90 px-3 py-1.5 backdrop-blur">
+                  <img src={logoNykaa} alt="Nykaa" className="h-4 w-auto object-contain" />
+                  <span className="text-[10px] uppercase tracking-[0.2em] text-emerald-deep">
+                    As seen on Nykaa
+                  </span>
+                </div>
+              )}
             </a>
           </div>
           <div className="lg:col-span-6 lg:pt-6">
@@ -431,8 +460,8 @@ function CategorySection({ category }: { category: Category }) {
                   className="aspect-[4/5] w-full rounded-sm object-cover ring-1 ring-emerald-deep/10"
                 />
                 <img
-                  src={louisvuittonImg}
-                  alt="Louis Vuitton fashion campaign"
+                  src={sulwhasooImg}
+                  alt="Sulwhasoo First Care Activating Serum"
                   loading="lazy"
                   width={340}
                   height={425}
@@ -456,7 +485,7 @@ function CategorySection({ category }: { category: Category }) {
                   className={dark ? "border-cream/10" : "border-emerald-deep/10"}
                   style={{ borderTop: "1px solid currentColor", opacity: 1 }}
                 >
-                  <a
+                  
                     href={b.href}
                     target="_blank"
                     rel="noopener noreferrer"
@@ -492,7 +521,7 @@ function CategorySection({ category }: { category: Category }) {
             </ul>
 
             {category.rank === "01" && (
-              <a
+              
                 href="https://www.nykaa.com"
                 target="_blank"
                 rel="noopener noreferrer"
@@ -539,7 +568,7 @@ function SocialProof() {
           {socials.map((s) => {
             const I = s.icon;
             return (
-              <a
+              
                 key={s.name}
                 href={s.href}
                 className="group flex flex-col justify-between bg-cream p-8 transition hover:bg-emerald-deep hover:text-cream"
