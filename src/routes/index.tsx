@@ -43,7 +43,7 @@ type Category = {
   image: string;
   imageAlt: string;
   icon: typeof Sparkles;
-  brands: { name: string; product: string; note: string }[];
+  brands: { name: string; product: string; note: string; href: string }[];
   reverse?: boolean;
 };
 
@@ -57,9 +57,9 @@ const categories: Category[] = [
     imageAlt: "Beauty ambassador holding luxury skincare bottles",
     icon: Sparkles,
     brands: [
-      { name: "Chanel", product: "N°1 de Chanel — Revitalizing Serum", note: "Personally recommended" },
-      { name: "Louis Vuitton", product: "Capucines Mini — Emerald Edition", note: "My pick" },
-      { name: "Nykaa", product: "Nykaa Naturals — Vitamin C Ritual", note: "In my rotation" },
+      { name: "Chanel", product: "N°1 de Chanel — Revitalizing Serum", note: "Personally recommended", href: "https://www.chanel.com" },
+      { name: "Louis Vuitton", product: "Capucines Mini — Emerald Edition", note: "My pick", href: "https://www.louisvuitton.com" },
+      { name: "Nykaa", product: "Nykaa Naturals — Vitamin C Ritual", note: "In my rotation", href: "https://www.nykaa.com" },
     ],
   },
   {
@@ -71,9 +71,9 @@ const categories: Category[] = [
     imageAlt: "Model wearing an emerald and gold high-jewelry necklace",
     icon: Gem,
     brands: [
-      { name: "Louis Vuitton", product: "LV Diamonds — Star Blossom", note: "Personally recommended" },
-      { name: "Chanel", product: "Coco Crush — 18K Beige Gold", note: "In my rotation" },
-      { name: "Blimax Édit", product: "Emerald Rope Necklace", note: "Personal curation" },
+      { name: "Louis Vuitton", product: "LV Diamonds — Star Blossom", note: "Personally recommended", href: "https://www.louisvuitton.com/eng-e1/high-jewelry" },
+      { name: "Chanel", product: "Coco Crush — 18K Beige Gold", note: "In my rotation", href: "https://www.chanel.com/us/fine-jewelry/" },
+      { name: "Swarovski", product: "Millenia Collection", note: "Personally recommended", href: "https://www.swarovski.com" },
     ],
   },
   {
@@ -85,10 +85,10 @@ const categories: Category[] = [
     imageAlt: "Ambassadors with Samsung smartphone, laptop and watch under emerald and rose lighting",
     icon: Cpu,
     brands: [
-      { name: "Google", product: "Pixel 10 Pro", note: "My pick" },
-      { name: "Samsung", product: "Galaxy S — Ultra Series", note: "Personally recommended" },
-      { name: "Samsung", product: "Galaxy Z Fold — Foldable", note: "In my rotation" },
-      { name: "Samsung", product: "Galaxy Watch — Wellness Edit", note: "Recently featured" },
+      { name: "Google", product: "Chromebook", note: "Used by Blimax", href: "https://www.google.com/chromebook/" },
+      { name: "Samsung", product: "Galaxy S25 Ultra", note: "Personally recommended", href: "https://www.samsung.com/global/galaxy/galaxy-s25-ultra/" },
+      { name: "Ant Esports", product: "Ant E-Mouse", note: "Recommended for gamers", href: "https://www.antesports.com" },
+      { name: "HyperX", product: "Cloud III — Gaming Headset", note: "In my rotation", href: "https://hyperx.com" },
     ],
     reverse: true,
   },
@@ -195,7 +195,7 @@ function Hero() {
         <div className="lg:col-span-6 lg:pt-10">
           <div className="flex items-center gap-3 text-xs uppercase tracking-[0.4em] text-gold">
             <span className="h-px w-10 bg-gold" />
-            The Endorsement House
+            Blimax Official
           </div>
           <h1 className="mt-6 font-serif text-5xl leading-[1.02] tracking-tight md:text-7xl lg:text-[92px]">
             Blimax's{" "}
@@ -364,20 +364,24 @@ function CategorySection({ category }: { category: Category }) {
           }`}
         >
           <div className="lg:col-span-6">
-            <div className="relative aspect-[4/5] overflow-hidden rounded-sm">
+            <a
+              href={`#${anchor}-brands`}
+              className="group relative block aspect-[4/5] overflow-hidden rounded-sm"
+              aria-label={`See brands in ${category.eyebrow}`}
+            >
               <img
                 src={category.image}
                 alt={category.imageAlt}
                 loading="lazy"
                 width={1400}
                 height={1600}
-                className="h-full w-full object-cover"
+                className="h-full w-full object-cover transition duration-700 group-hover:scale-[1.02]"
               />
               <div className="absolute left-0 top-0 flex items-center gap-3 bg-gold px-4 py-2 text-[10px] uppercase tracking-[0.3em] text-emerald-deep">
                 <Icon className="h-3 w-3" />
                 {category.eyebrow}
               </div>
-            </div>
+            </a>
           </div>
           <div className="lg:col-span-6 lg:pt-6">
             <div
@@ -431,15 +435,21 @@ function CategorySection({ category }: { category: Category }) {
               </div>
             )}
 
-            <ul className="mt-10 divide-y divide-current/10">
+            <ul id={`${anchor}-brands`} className="mt-10 divide-y divide-current/10 scroll-mt-24">
               {category.brands.map((b) => (
                 <li
                   key={b.name + b.product}
-                  className={`grid grid-cols-12 items-baseline gap-4 py-5 ${
-                    dark ? "border-cream/10" : "border-emerald-deep/10"
-                  }`}
+                  className={dark ? "border-cream/10" : "border-emerald-deep/10"}
                   style={{ borderTop: "1px solid currentColor", opacity: 1 }}
                 >
+                  <a
+                    href={b.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={`group grid grid-cols-12 items-baseline gap-4 py-5 transition ${
+                      dark ? "hover:text-rose" : "hover:text-rose"
+                    }`}
+                  >
                   <div
                     className={`col-span-4 font-serif text-2xl ${
                       dark ? "text-gold" : "text-emerald-deep"
@@ -455,12 +465,14 @@ function CategorySection({ category }: { category: Category }) {
                     {b.product}
                   </div>
                   <div
-                    className={`col-span-2 text-right text-[10px] uppercase tracking-[0.2em] ${
+                    className={`col-span-2 flex items-center justify-end gap-1 text-right text-[10px] uppercase tracking-[0.2em] ${
                       dark ? "text-cream/50" : "text-muted-foreground"
                     }`}
                   >
                     {b.note}
+                    <ArrowUpRight className="h-3 w-3 opacity-0 transition group-hover:opacity-100" />
                   </div>
+                  </a>
                 </li>
               ))}
             </ul>
