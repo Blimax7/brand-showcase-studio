@@ -278,12 +278,14 @@ function BrandMarquee() {
         <div className="flex animate-[marquee_40s_linear_infinite] items-center whitespace-nowrap">
           {items.map((b, i) => (
             <span key={`${b.name}-${i}`} className="flex items-center">
-              <img
-                src={b.logo}
-                alt={`${b.name} logo`}
-                className="h-8 w-auto object-contain md:h-10"
-              />
-              <span className="mx-8 text-gold">✦</span>
+              <span className="flex h-10 w-28 items-center justify-center md:h-12 md:w-32">
+                <img
+                  src={b.logo}
+                  alt={`${b.name} logo`}
+                  className="max-h-full max-w-full object-contain"
+                />
+              </span>
+              <span className="mx-6 text-gold">✦</span>
             </span>
           ))}
         </div>
