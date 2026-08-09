@@ -77,7 +77,7 @@ const categories: Category[] = [
     imageAlt: "Model wearing an emerald and gold high-jewelry necklace",
     icon: Gem,
     brands: [
-      { name: "Louis Vuitton", product: "LV Diamonds — Star Blossom", note: "Personally recommended", href: "https://www.louisvuitton.com/eng-e1/high-jewelry" },
+      { name: "Louis Vuitton", product: "LV Diamonds — Star Blossom", note: "Personally recommended", href: "https://eu.louisvuitton.com/eng-e1/jewelry/collections/color-blossom/_/N-t1drsqza" },
       { name: "Chanel", product: "Coco Crush — 18K Beige Gold", note: "In my rotation", href: "https://www.chanel.com/us/fine-jewelry/" },
       { name: "Swarovski", product: "Millenia Collection", note: "Personally recommended", href: "https://www.swarovski.com" },
     ],
